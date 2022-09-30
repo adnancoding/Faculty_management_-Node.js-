@@ -1,0 +1,13 @@
+<html>
+    <center>
+        <form action="/faculty/editpicture" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="facultyid" value="<%=result.fid %>">
+            <h3><%=result.fn %> <%=result.ln %></h3>
+            <img src="/images/<%=result.image %>" width="300" /><br>
+            <hr color="red" width="300">
+            <h3>Edit Picture</h3>
+            <input type="file" name="Image" required><br><br>
+            <input type="submit" value="Upload New Image">
+        </form>
+    </center>
+</html>

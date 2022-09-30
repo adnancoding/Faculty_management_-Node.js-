@@ -1,0 +1,418 @@
+<style>
+  .root {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 2%;
+    justify-content: center;
+    align-items: center;
+  }
+  .subdiv {
+    display: flex;
+    width: auto;
+    height: auto;
+    background: #ccff;
+    border-radius: 2%;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+  }
+  .rowstyle {
+    width: 900px;
+    margin: 10px;
+  }
+
+  .watermark {
+    background: url(/images/cam.jpg);
+    position: absolute;
+    background-repeat: no-repeat;
+    /* z-index: -1; */
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+</style>
+<html>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/javascripts/project.js"></script>
+  <title>Edit/Delete</title>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a
+        class="navbar-brand"
+        href="#"
+        style="display: flex; flex-direction: row"
+      >
+        <img
+          src="/images/itm.png"
+          width="200"
+          height="60"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        <span style="display: flex; align-items: center; font-size: 30px"
+          ><%=aresult.adminname%></span
+        >
+      </a>
+
+      <div style="display: flex; margin-left: auto; align-items: center">
+        <span>
+          <a class="navbar-brand" href="/logout">Logout</a>
+        </span>
+        <span>
+          <img
+            src="/images/<%=aresult.picture %>"
+            style="width: 80px; border-radius: 20px"
+          />
+        </span>
+      </div>
+    </nav>
+
+    <div class="form-row">
+      <div class="form-group col-md-2 watermark" style="height: 100vh">
+        <ul class="nav flex-column">
+          <li
+            class="nav-item"
+            style="
+              display: flex;
+              align-items: center;
+              padding: 10px;
+              flex-direction: row;
+            "
+          >
+            <i
+              class="fas fa-users"
+              style="
+                font-weight: 400;
+                font-size: 24px;
+                color: rgb(0, 0, 0) !important;
+              "
+            ></i>
+            <a
+              class="nav-link active"
+              href="/faculty/facultyinterface"
+              style="font-weight: 400; font-size: 24px; color: #000 !important"
+              >Add faculties</a
+            >
+          </li>
+
+          <li class="nav-item"></li>
+          <li
+            class="nav-item"
+            style="
+              display: flex;
+              align-items: center;
+              padding: 10px;
+              flex-direction: row;
+            "
+          >
+            <i
+              class="fas fa-address-book"
+              style="font-weight: 400; font-size: 24px; color: #000 !important"
+            ></i>
+            <a
+              class="nav-link active"
+              href="/faculty/showallfaculties"
+              style="font-weight: 400; font-size: 24px; color: #000 !important"
+              >List faculties</a
+            >
+          </li>
+          <li class="nav-item"></li>
+          <li
+            class="nav-item"
+            style="
+              display: flex;
+              align-items: center;
+              padding: 10px;
+              flex-direction: row;
+            "
+          >
+            <i
+              class="fas fa-search"
+              style="font-weight: 400; font-size: 24px; color: #000 !important"
+            ></i>
+            <a
+              class="nav-link active"
+              href="/faculty/Searchfaculty"
+              style="font-weight: 400; font-size: 24px; color: #000 !important"
+              >Search</a
+            >
+          </li>
+          <li class="nav-item"></li>
+          <li
+            class="nav-item"
+            style="
+              display: flex;
+              align-items: center;
+              padding: 10px;
+              flex-direction: row;
+            "
+          >
+            <i
+              class="fas fa-sign-out-alt"
+              style="font-weight: 400; font-size: 24px; color: #000 !important"
+            ></i>
+            <a
+              class="nav-link active"
+              href="/logout"
+              style="font-weight: 400; font-size: 24px; color: #000 !important"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-group col-md-8">
+        <form action="/faculty/edit">
+          <div class="root">
+            <div class="subdiv">
+              <div class="row rowstyle">
+                <div
+                  class="col"
+                  style="
+                    color: firebrick;
+                    font-size: 20px;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                  "
+                >
+                  <img src="/images/fac.png" width="40" />
+                  Faculty Interface[Edit/Delete]
+                </div>
+                <div
+                  class="col"
+                  style="
+                    color: darkslateblue;
+                    font-size: 20px;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                  "
+                >
+                  <a href="/faculty/showallfaculties">List Faculties</a>
+                </div>
+              </div>
+              <input
+                type="hidden"
+                value="<%=data.facultyid %>"
+                name="facultyid"
+              />
+              <div class="row rowstyle">
+                <div class="col">
+                  <input
+                    type="text"
+                    value="<%=data.firstname %>"
+                    class="form-control"
+                    placeholder="First Name"
+                    name="firstname"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    value="<%=data.lastname %>"
+                    class="form-control"
+                    placeholder="Last Name"
+                    name="lastname"
+                  />
+                </div>
+              </div>
+              <div class="row rowstyle">
+                <div class="col">
+                  <input
+                    value="<%=data.birthdate %>"
+                    type="date"
+                    class="form-control"
+                    placeholder="Birth Date"
+                    name="birthdate"
+                  />
+                </div>
+
+                <% if(data.gender=="Male") { %>
+                <div
+                  class="col"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <i
+                    class="fas fa-male"
+                    style="font-size: 35; color: darkgreen"
+                  ></i>
+                  <input
+                    type="radio"
+                    checked
+                    value="Male"
+                    name="gender"
+                    style="margin-left: 5px"
+                  />
+                  <i
+                    class="fas fa-female"
+                    style="font-size: 35; color: hotpink; margin-left: 20px"
+                  ></i>
+                  <input
+                    type="radio"
+                    value="female"
+                    name="gender"
+                    style="margin-left: 5px"
+                  />
+                </div>
+                <% } else {%>
+                <div
+                  class="col"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <i
+                    class="fas fa-male"
+                    style="font-size: 35; color: darkgreen"
+                  ></i>
+                  <input
+                    type="radio"
+                    value="Male"
+                    name="gender"
+                    style="margin-left: 5px"
+                  />
+                  <i
+                    class="fas fa-female"
+                    style="font-size: 35; color: hotpink; margin-left: 20px"
+                  ></i>
+                  <input
+                    type="radio"
+                    checked
+                    value="female"
+                    name="gender"
+                    style="margin-left: 5px"
+                  />
+                </div>
+                <%} %>
+              </div>
+
+              <div class="row rowstyle">
+                <div class="col">
+                  <input
+                    type="text"
+                    value="<%=data.mobileno %>"
+                    class="form-control"
+                    placeholder="Mobile Number"
+                    name="mobileno"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    value="<%=data.email %>"
+                    class="form-control"
+                    placeholder="Email Address"
+                    name="email"
+                  />
+                </div>
+              </div>
+
+              <div class="row rowstyle">
+                <div class="col">
+                  <input
+                    type="text"
+                    value="<%=data.address %>"
+                    class="form-control"
+                    placeholder="Address"
+                    name="address"
+                  />
+                </div>
+              </div>
+
+              <div class="row rowstyle">
+                <div class="col">
+                  <select class="form-control" name="state" id="state">
+                    <option value="<%=data.state %>">
+                      <%=data.statename %>
+                    </option>
+                  </select>
+                </div>
+                <div class="col">
+                  <select class="form-control" id="city" name="city">
+                    <option value="<%=data.city %>"><%=data.cityname %></option>
+                  </select>
+                </div>
+                <div class="col">
+                  <input
+                    value="<%=data.zipcode %>"
+                    type="text"
+                    class="form-control"
+                    placeholder="Zipcode"
+                    id="zipcode"
+                    name="zipcode"
+                  />
+                </div>
+              </div>
+
+              <div class="row rowstyle">
+                <div class="col">
+                  <input
+                    type="text"
+                    value="<%=data.qualification %>"
+                    class="form-control"
+                    placeholder="Qualification"
+                    name="qualification"
+                  />
+                </div>
+                <div class="col">
+                  <select class="form-control" name="department">
+                    <option><%=data.department %></option>
+                    <option>Computer Science</option>
+                    <option>Information Technology</option>
+                    <option>Civil</option>
+                    <option>Electrical</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row rowstyle">
+                <div
+                  class="col"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <button
+                    style="font-size: 18; width: 350"
+                    name="btn"
+                    value="Edit"
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Edit
+                  </button>
+
+                  
+                </div>
+               
+               
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<style>
+ .watermark{
+     background: url(/images/cam.jpg);
+     position: absolute;
+     background-repeat: no-repeat;
+     /* z-index: -1; */
+     opacity: 1.0;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     
+ }   
+    
+</style>
+<html>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="display: flex; flex-direction: row;">
+        <img src="/images/itm.png" width="200" height="60" class="d-inline-block align-top" alt="">
+         <span style="display: flex; align-items: center; font-size: 30px;"><%=result.adminname%></span>
+
+        </a>
+
+        <div style="display: flex; margin-left: auto; align-items: center;">
+        <span>
+            <a class="navbar-brand" href="/logout">Logout</a>
+        </span>
+        <span>
+            <img src="/images/<%=result.picture %>" style="width: 80px; border-radius: 20px;">
+        </span>
+        </div>
+    </nav>
+
+    <div class="form-row" >
+        <div class="form-group col-md-2 watermark" style=" height: 100vh;">
+        <ul class="nav flex-column">
+            <li class="nav-item" style="display:flex; align-items:center; padding:10px; flex-direction:row;">
+                <i class="fas fa-users" style=" font-weight:400; font-size: 24px; color:rgb(0, 0, 0)!important;"></i>
+              <a class="nav-link active" href="/faculty/facultyinterface" style=" font-weight:400; font-size: 24px; color:#000!important;">Add faculties</a>
+            </li>
+            
+            <li class="nav-item">
+                <li class="nav-item" style="display:flex; align-items:center; padding:10px; flex-direction:row;">
+                    <i class="fas fa-address-book" style=" font-weight:400; font-size: 24px; color:#000!important;"></i>
+                <a class="nav-link active" href="/faculty/showallfaculties" style=" font-weight:400; font-size: 24px; color:#000!important;">List faculties</a>
+
+            </li>
+            <li class="nav-item">
+                <li class="nav-item" style="display:flex; align-items:center; padding:10px; flex-direction:row;">
+                    <i class="fas fa-search" style=" font-weight:400; font-size: 24px; color:#000!important;"></i>
+                <a class="nav-link active" href="/faculty/searchfaculty" style="font-weight:400; font-size: 24px; color:#000!important;">Search</a>
+
+            </li>
+            <li class="nav-item">
+                <li class="nav-item" style="display:flex; align-items:center; padding:10px; flex-direction:row;">
+                    <i class="fas fa-sign-out-alt" style=" font-weight:400; font-size: 24px; color:#000!important;"></i>
+                <a class="nav-link active" href="/logout" style="font-weight:400; font-size: 24px; color:#000!important;">Logout</a>
+
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-group col-md-8">
+            view
+        </div>
+    </div>
+
+
+
+
+</html>
